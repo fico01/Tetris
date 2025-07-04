@@ -16,6 +16,9 @@ public class GamePanel extends JPanel implements Runnable {
         this.setBackground(Color.black);
         this.setLayout(null);
 
+        //Keylistener
+        this.addKeyListener(new KeyHandler());
+        this.setFocusable(true);
         pm = new PlayManager();
     }
     public void  launchGame(){
@@ -45,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable {
     private void update(){
         pm.update();
     }
-    public void paintCOmponent(Graphics g){
+    public void paintComponent(Graphics g){
         super.paintComponent(g);
 
         Graphics2D g2 = (Graphics2D)g;
