@@ -42,10 +42,18 @@ public class Mino {
         // Move the piece
         if(KeyHandler.upPressed){
             switch (direction){
-                case 1: getDirectional1();break;
-                case 2: getDirectional2();break;
-                case 3: getDirectional3();break;
-                case 4: getDirectional4();break;
+                case 1:
+                    getDirectional2();
+                break;
+                case 2:
+                    getDirectional3();
+                    break;
+                case 3:
+                    getDirectional4();
+                    break;
+                case 4:
+                    getDirectional1();
+                break;
             }
             KeyHandler.upPressed = false;
 
