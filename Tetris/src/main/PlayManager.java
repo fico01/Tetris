@@ -1,9 +1,16 @@
 package main;
 
+<<<<<<< HEAD
 import mino.*;
 
 import java.awt.*;
 import java.util.Random;
+=======
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Random;
+import mino.*;
+>>>>>>> 0d2502e (Adicionando proxima peça, e colisão)
 
 public class PlayManager {
 
@@ -18,6 +25,14 @@ public class PlayManager {
     final int MINO_START_X;
     final int MINO_START_Y;
 
+<<<<<<< HEAD
+=======
+    Mino nextMino;
+    final int NEXTMINO_X;
+    final int NEXTMINO_Y;
+    public static ArrayList<Block> staticBlocks = new ArrayList<>();
+
+>>>>>>> 0d2502e (Adicionando proxima peça, e colisão)
     public static int dropInterval = 60;
 
     public PlayManager(){
@@ -29,8 +44,18 @@ public class PlayManager {
         MINO_START_X = left_x+ (WIDTH/2) - Block.SIZE;
         MINO_START_Y = top_y+ Block.SIZE;
 
+<<<<<<< HEAD
         currentMino = pickMino();
         currentMino.setXY(MINO_START_X,MINO_START_Y);
+=======
+        NEXTMINO_X = right_x + 185;
+        NEXTMINO_Y = top_y + 500;
+
+        currentMino = pickMino();
+        currentMino.setXY(MINO_START_X,MINO_START_Y);
+        nextMino = pickMino();
+        nextMino.setXY(NEXTMINO_X, NEXTMINO_Y);
+>>>>>>> 0d2502e (Adicionando proxima peça, e colisão)
     }
     private Mino pickMino() {
 
@@ -49,7 +74,24 @@ public class PlayManager {
         return mino;
     }
     public void update(){
+<<<<<<< HEAD
         currentMino.update();
+=======
+        if(currentMino.active == true){
+            staticBlocks.add(currentMino.b[0]);
+            staticBlocks.add(currentMino.b[1]);
+            staticBlocks.add(currentMino.b[2]);
+            staticBlocks.add(currentMino.b[3]);
+
+            currentMino = nextMino;
+            currentMino.setXY(MINO_START_X, MINO_START_Y);
+            nextMino = pickMino();
+            nextMino.setXY(NEXTMINO_X, NEXTMINO_Y);
+        } else {
+            currentMino.update();
+        }
+        
+>>>>>>> 0d2502e (Adicionando proxima peça, e colisão)
     }
     public void draw(Graphics2D g2){
         // Desenha área de jogo
@@ -68,6 +110,15 @@ public class PlayManager {
         if(currentMino != null){
             currentMino.draw(g2);
         }
+<<<<<<< HEAD
+=======
+
+        nextMino.draw(g2);
+
+        for (int i = 0; i < staticBlocks.size(); i++) {
+            staticBlocks.get(i).draw(g2);
+        }
+>>>>>>> 0d2502e (Adicionando proxima peça, e colisão)
     }
 }
 
